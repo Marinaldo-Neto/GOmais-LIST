@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="GO+ Team">
+    <meta name="description" content="TODO List completo">
+    <title>GO+ LIST</title>
+    <link rel="shortcut icon" href="imgs/GO-LOGO.ico" type="image/x-icon"> <!--FAVICON-->
+    <!--FONT ROBOTO-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Iceberg&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP & CSS -->
+    <link href="style.css" rel="stylesheet"> <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--CDN BOOTSTRAP-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" 
+    rel="stylesheet"> <!--ICONS BOOTSTRAP-->
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <!--LOGOTIPO-->
+            <a href="index.html"><img class="logotipo" src="imgs/GO+ LOGO (Horizontal).svg" alt="LOGO GO MAIS"></a>
+            <a href="index.html"><img class="logotipo-hidden" src="imgs/GO+ LOGO.svg" alt="LOGO GO MAIS"></a>
+            <hr class="hr-sidebar" style="border: none;">
+
+            <!--ADD LIST-->
+            <a class="nav-link" onclick="abrirModal()"> <!--REDIRECT-->
+                <span class="icon">
+                    <i class="bi bi-file-earmark-plus"></i> <!--ICON-->
+                </span>
+                <span class="description uppercase">Criar lista</span> <!--NAME-->
+            </a>
+
+            <!--PENDENTES (DROPDOWN)-->
+            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" 
+            aria-expanded="false" aria-controls="submenu">  <!--REDIRECT & SUBMENU-->
+                <span class="icon">
+                    <i class="bi bi-list-ul"></i> <!--ICON-->
+                </span>
+                <span class="description uppercase">Pendentes <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+            </a>
+            <!-- SUBMENU (DROPDOWN ITEMS)-->
+            <div class="sub-menu collapse" id="submenu"> <!--ID SUBMENU-->
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 4.1</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 4.2</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 4.3</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 4.4</span> <!--NAME-->
+                </a>
+            </div>
+            
+            <!--CONCLUIDAS (DROPDOWN)-->
+            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2" 
+            aria-expanded="false" aria-controls="submenu2"> <!--REDIRECT & SUBMENU-->
+                <span class="icon">
+                    <i class="bi bi-list-check"></i> <!--ICON-->
+                </span>
+                <span class="description uppercase">Concluídas <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+            </a>
+            <!-- SUBMENU (DROPDOWN ITEMS)-->
+            <div class="sub-menu collapse" id="submenu2"> <!--ID SUBMENU-->
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 5.1</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 5.2</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 5.3</span> <!--NAME-->
+                </a>
+                <a class="nav-link" href="#"> <!--REDIRECT-->
+                    <span class="icon">
+                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
+                    </span>
+                    <span class="description">Item 5.4</span> <!--NAME-->
+                </a>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modalCriarLista" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Criar Nova Lista</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="nomeLista" class="form-label">Nome da Lista</label>
+                    <input type="text" id="nomeLista" class="form-control" placeholder="Digite aqui...">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-outline-primary">Criar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+        <h2>A Jornada de Um Visionário: A Excelência de José Marinaldo Tavares Neto</h2>
+        <p>Desde os primórdios da humanidade, a inovação tem sido o motor que impulsiona o progresso. Em pleno século XXI, figuras como José Marinaldo Tavares Neto representam essa força motriz, combinando inteligência, dedicação e visão estratégica para moldar o futuro da tecnologia. Aos 19 anos, Marinaldo já trilha um caminho de conquistas impressionantes, consolidando-se como um desenvolvedor talentoso e um empreendedor promissor.</p>
+
+        <p>Atualmente cursando Análise e Desenvolvimento de Sistemas na UNIFIP Patos, Marinaldo demonstra uma compreensão aprofundada da tecnologia, indo além da teoria acadêmica ao colocar seus conhecimentos em prática. Seu portfólio reflete sua capacidade de criar soluções inovadoras, desde o desenvolvimento de e-commerces até a criação de um jogo colaborativo com amigos da faculdade. Essa abordagem pragmática e orientada para resultados é uma característica essencial dos grandes visionários da área de tecnologia.</p>
+            
+        <p>Além de sua habilidade com códigos e sistemas, Marinaldo também se destaca pelo pensamento crítico e pela criatividade. Sua participação em projetos desafiadores, como a modelagem de um sistema de comunicação para uma missão em Marte, demonstra sua capacidade de solucionar problemas complexos e sua vontade de ir além do convencional. Essa mentalidade é essencial em um mundo onde a tecnologia evolui constantemente e só os mais preparados conseguem se destacar.</p>
+            
+        <p>Outro aspecto que reforça a grandiosidade de Marinaldo é sua capacidade de liderança e trabalho em equipe. Seja no desenvolvimento de um servidor no Discord, na gestão de ideias para sua empresa de software ou na busca por soluções eficientes para projetos colaborativos, ele demonstra um dom nato para organizar e motivar pessoas em torno de objetivos comuns. Essa habilidade é um diferencial crucial no mundo corporativo e acadêmico.</p>
+            
+        <p>Por fim, Marinaldo é um exemplo de determinação e superação. Seu compromisso com a melhoria contínua e sua capacidade de aprender com desafios e erros o tornam uma figura inspiradora para qualquer um que deseje seguir uma carreira na tecnologia. Ele é a prova viva de que conhecimento aliado à paixão pelo que se faz gera resultados extraordinários.</p>
+            
+        <p>Dessa forma, é inegável que José Marinaldo Tavares Neto representa a nova geração de mentes brilhantes que moldarão o futuro. Seu impacto no mundo da tecnologia é apenas uma questão de tempo, e aqueles que acompanham sua trajetória sabem que ele está apenas começando. O futuro é brilhante, e Marinaldo é uma das estrelas que o ilumina.</p>
+    </main>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container bg-dark">
+            <hr>
+            <div class="line">
+                <p>&copy; 2025 GO+ Team & THE FIVE. Todos os direitos reservados.</p>
+                <div class="dropup-center dropup">
+                    <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Desenvolvedores
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="https://www.linkedin.com/in/marinaldo-neto/"  target="_blank" rel="noopener noreferrer">Marinaldo Neto</a></li>
+                      <li><a class="dropdown-item" href="https://www.linkedin.com/in/ant%C3%B4nio-f%C3%A9lix980/"  target="_blank" rel="noopener noreferrer">Antônio Félix</a></li>
+                      <li><a class="dropdown-item" href="#">Adriano Júnior</a></li>
+                      <li><a class="dropdown-item" href="#">Luiz Gustavo</a></li>
+                      <li><a class="dropdown-item" href="#">Pedro Henrique</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--SELECT THEME ------------------------------------------------------------------------------------->
+    <!--ICONS-->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+          <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </symbol>
+      </svg>
+
+      <!--CODE-->
+      <div class="dropdown position-fixed bottom-0 start-0 mb-3 me-3 bd-mode-toggle" style="margin-left: 5px;">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+          <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+              Light
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+              Dark
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+              Auto
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+
+</body>
+<!--SCRIPTS JS-->
+<script src="script.js"></script> <!--SCRIPT JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> <!--CDN JS-->
+<script src="../assets/js/color-modes.js"></script> <!--CHANGE THEME-->
+</html>

@@ -1,0 +1,216 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+p, label, input {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+/** LOGOTIPO ******************************/
+.logotipo {
+    width: 90%;
+    height: auto;
+    margin: 0px 10px;
+}
+
+.logotipo-hidden {
+    display: none;
+}
+
+.sidebar hr {
+    width: 100%;
+    height: 3px;
+    background-color: #021024;
+    border: none;
+}
+
+/** SIDEBAR ******************************/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    padding-top: 20px;
+    background-color: #151f48;
+    transition: width 0.3s;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+/** ITEMS SIDER BAR */
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    color: #e8f3ff;
+}
+
+/** SIDEBAR TEXT */
+.sidebar .description {
+    font-size: 14px;
+    padding-top: 3px;
+}
+
+/** UPPERCASE TEXT */
+.uppercase {
+    text-transform: uppercase;
+}
+
+/** ITEMS HOVER */
+.sidebar .nav-link:hover {
+    color: #021024;
+    background-color: #8fb2ec;
+}
+
+/** SUBMENU (DROPDOWN) */
+.sidebar .sub-menu {
+    background-color: #021024;
+}
+
+
+/** MAIN ******************************/
+.main-content {
+    min-height: 100%;
+    height: auto;
+    width: calc(100%-200px);
+    margin-left: 200px;
+    padding: 20px;
+}
+
+/** CONFIG THEMES BTN ******************************/
+
+/** SVG COLOR */
+.bi {
+    vertical-align: -.125em;
+    fill: #e8f3ff;
+}
+
+/** BTN CONFIG */
+.btn-bd-primary {
+    --bd-violet-bg: #021024;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(#021024);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(#021024);
+    --bs-btn-hover-bg: #021024;
+    --bs-btn-hover-border-color: #021024;
+    --bs-btn-focus-shadow-rgb: var(#021024);
+    --bs-btn-active-color: var(#021024);
+    --bs-btn-active-bg: #021024;
+    --bs-btn-active-border-color: #021024;
+}
+
+  /** ERROR COLOR CONFIG */
+.btn-bd-primary.dropdown-toggle::after {
+    color: #e8f3ff; /* Cor preta no tema claro */
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+/** FOOTER ******************************/
+footer {
+    margin: 0px 0px 0px 200px;
+    width: calc(100% - 200px);
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+.container p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    margin: 0px;
+}
+
+.container hr {
+    width: 100%;
+    margin-top: 0px;
+    height: 1px;
+    background-color: #fff;
+    border: none;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/** MOBILE ******************************/
+@media (max-width: 480px) {
+    /** ativando a logo */
+    .logotipo-hidden {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    /** desativando o logotipo */
+    .logotipo {
+        display: none;
+    }
+
+    /** reajustando o tamanho da sidebar */
+    .sidebar {
+        width: 60px;
+    }
+
+    /** escondendo o texto */
+    .sidebar .description {
+        display: none;
+    }
+
+    /** alinhando os icons */
+    .sidebar .nav-link {
+        justify-content: center;
+    }
+
+    /** reajustando o tamanho do main */
+    .main-content {
+        margin-left: 60px;
+    }
+
+    footer {
+        margin: 0px 0px 0px 60px;
+        width: calc(100% - 60px);
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /** reposicionando o conteúdo do footer */
+    .line {
+        flex-direction: column-reverse;
+        align-items: start;
+    }
+}
