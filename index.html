@@ -136,20 +136,26 @@
 
     <!-- MAIN -->
     <main class="main-content">
-        <h2>A Jornada de Um Visionário: A Excelência de José Marinaldo Tavares Neto</h2>
-        <p>Desde os primórdios da humanidade, a inovação tem sido o motor que impulsiona o progresso. Em pleno século XXI, figuras como José Marinaldo Tavares Neto representam essa força motriz, combinando inteligência, dedicação e visão estratégica para moldar o futuro da tecnologia. Aos 19 anos, Marinaldo já trilha um caminho de conquistas impressionantes, consolidando-se como um desenvolvedor talentoso e um empreendedor promissor.</p>
+        <h1>Nome da Lista</h1>
+        <hr>
+        <div class="add-task">
+            <input type="text" id="nomeTask" class="form-control" placeholder="Adicionar atividade" aria-label="Adicionar atividade">
+            <button type="button" class="btn btn-primary" onclick="addSubTask()"><i class="bi bi-plus-lg"></i></button>
+        </div>
+    
+        <br>
+    
+        <ul id="subTaskList" class="list-group"></ul>
+    
+        <br>
+    
+        <button type="button" class="btn btn-primary">Marcar como Concluído</button>
+        <button type="button" class="btn btn-danger" onclick="removeAllSubTasks('${taskText}')">Excluir Todas as Subtarefas</button>
 
-        <p>Atualmente cursando Análise e Desenvolvimento de Sistemas na UNIFIP Patos, Marinaldo demonstra uma compreensão aprofundada da tecnologia, indo além da teoria acadêmica ao colocar seus conhecimentos em prática. Seu portfólio reflete sua capacidade de criar soluções inovadoras, desde o desenvolvimento de e-commerces até a criação de um jogo colaborativo com amigos da faculdade. Essa abordagem pragmática e orientada para resultados é uma característica essencial dos grandes visionários da área de tecnologia.</p>
-            
-        <p>Além de sua habilidade com códigos e sistemas, Marinaldo também se destaca pelo pensamento crítico e pela criatividade. Sua participação em projetos desafiadores, como a modelagem de um sistema de comunicação para uma missão em Marte, demonstra sua capacidade de solucionar problemas complexos e sua vontade de ir além do convencional. Essa mentalidade é essencial em um mundo onde a tecnologia evolui constantemente e só os mais preparados conseguem se destacar.</p>
-            
-        <p>Outro aspecto que reforça a grandiosidade de Marinaldo é sua capacidade de liderança e trabalho em equipe. Seja no desenvolvimento de um servidor no Discord, na gestão de ideias para sua empresa de software ou na busca por soluções eficientes para projetos colaborativos, ele demonstra um dom nato para organizar e motivar pessoas em torno de objetivos comuns. Essa habilidade é um diferencial crucial no mundo corporativo e acadêmico.</p>
-            
-        <p>Por fim, Marinaldo é um exemplo de determinação e superação. Seu compromisso com a melhoria contínua e sua capacidade de aprender com desafios e erros o tornam uma figura inspiradora para qualquer um que deseje seguir uma carreira na tecnologia. Ele é a prova viva de que conhecimento aliado à paixão pelo que se faz gera resultados extraordinários.</p>
-            
-        <p>Dessa forma, é inegável que José Marinaldo Tavares Neto representa a nova geração de mentes brilhantes que moldarão o futuro. Seu impacto no mundo da tecnologia é apenas uma questão de tempo, e aqueles que acompanham sua trajetória sabem que ele está apenas começando. O futuro é brilhante, e Marinaldo é uma das estrelas que o ilumina.</p>
+
+
     </main>
-
+    
     <!--FOOTER-->
     <footer>
         <div class="container bg-dark">
