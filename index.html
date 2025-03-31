@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="GO+ Team">
+    <meta name="author" content="GO+ Team; José Marinaldo, Adriano Júnior, Luiz Gustavo, Antônio Félix, Pedro Henrique Rocha">
     <meta name="description" content="TODO List completo">
     <title>GO+ LIST</title>
     <link rel="shortcut icon" href="imgs/GO-LOGO.ico" type="image/x-icon"> <!--FAVICON-->
@@ -17,94 +17,52 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" 
     rel="stylesheet"> <!--ICONS BOOTSTRAP-->
 </head>
-<body>
+<body></body>
     <!-- SIDEBAR -->
     <div class="sidebar">
         <nav class="nav flex-column">
-            <!--LOGOTIPO-->
-            <a href="index.html"><img class="logotipo" src="imgs/GO+ LOGO (Horizontal).svg" alt="LOGO GO MAIS"></a>
-            <a href="index.html"><img class="logotipo-hidden" src="imgs/GO+ LOGO.svg" alt="LOGO GO MAIS"></a>
-            <hr class="hr-sidebar" style="border: none;">
+          <!--LOGOTIPO-->
+          <a href="index.html"><img class="logotipo" src="imgs/GO+ LOGO (Horizontal).svg" alt="LOGO GO MAIS"></a>
+          <a href="index.html"><img class="logotipo-hidden" src="imgs/GO+ LOGO.svg" alt="LOGO GO MAIS"></a>
+          <hr class="hr-sidebar" style="border: none;">
+          <!--ADD LIST-->
+          <a class="nav-link" onclick="abrirModal()"> <!--REDIRECT-->
+              <span class="icon">
+                  <i class="bi bi-file-earmark-plus"></i> <!--ICON-->
+              </span>
+              <span class="description uppercase">Criar lista</span> <!--NAME-->
+          </a>
+          <!--PENDENTES (DROPDOWN)-->
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" 
+          aria-expanded="false" aria-controls="submenu">  <!--REDIRECT & SUBMENU-->
+              <span class="icon">
+                  <i class="bi bi-list-ul"></i> <!--ICON-->
+              </span>
+              <span class="description uppercase">Pendentes <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+          </a>
+          <!--SUBMENU DINAMICO-->
+          <div class="sub-menu collapse" id="submenu">
+              <div id="taskList"></div> <!-- As tarefas serão adicionadas aqui -->
+          </div>
+          
+          <!-- SUBMENU (DROPDOWN ITEMS)-->
+          <div class="sub-menu collapse" id="submenu"> <!--ID SUBMENU-->
+              
+          </div>
+          
+          <!--CONCLUIDAS (DROPDOWN)-->
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2" 
+          aria-expanded="false" aria-controls="submenu2"> <!--REDIRECT & SUBMENU-->
+          <span class="icon">
+              <i class="bi bi-list-check"></i> <!--ICON-->
+          </span>
+          <span class="description uppercase">Concluídas <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+        </a>
+      <!-- SUBMENU (DROPDOWN ITEMS)-->
+      <div class="sub-menu collapse" id="submenu2"> <!--ID SUBMENU-->
+        <div id="completedTaskList"></div>
+      </div>
 
-            <!--ADD LIST-->
-            <a class="nav-link" onclick="abrirModal()"> <!--REDIRECT-->
-                <span class="icon">
-                    <i class="bi bi-file-earmark-plus"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Criar lista</span> <!--NAME-->
-            </a>
-
-            <!--PENDENTES (DROPDOWN)-->
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" 
-            aria-expanded="false" aria-controls="submenu">  <!--REDIRECT & SUBMENU-->
-                <span class="icon">
-                    <i class="bi bi-list-ul"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Pendentes <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
-            </a>
-            <!-- SUBMENU (DROPDOWN ITEMS)-->
-            <div class="sub-menu collapse" id="submenu"> <!--ID SUBMENU-->
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 4.1</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 4.2</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 4.3</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 4.4</span> <!--NAME-->
-                </a>
-            </div>
-            
-            <!--CONCLUIDAS (DROPDOWN)-->
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2" 
-            aria-expanded="false" aria-controls="submenu2"> <!--REDIRECT & SUBMENU-->
-                <span class="icon">
-                    <i class="bi bi-list-check"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Concluídas <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
-            </a>
-            <!-- SUBMENU (DROPDOWN ITEMS)-->
-            <div class="sub-menu collapse" id="submenu2"> <!--ID SUBMENU-->
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 5.1</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 5.2</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 5.3</span> <!--NAME-->
-                </a>
-                <a class="nav-link" href="#"> <!--REDIRECT-->
-                    <span class="icon">
-                        <i class="bi bi-file-earmark-check"></i> <!--ICON-->
-                    </span>
-                    <span class="description">Item 5.4</span> <!--NAME-->
-                </a>
-            </div>
 
         </nav>
     </div>
@@ -119,33 +77,64 @@
                 </div>
                 <div class="modal-body">
                     <label for="nomeLista" class="form-label">Nome da Lista</label>
-                    <input type="text" id="nomeLista" class="form-control" placeholder="Digite aqui...">
+                    <input type="text" id="taskInput" class="form-control" placeholder="Digite aqui...">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline-primary">Criar</button>
+                    <button type="button" class="btn btn-outline-primary " onclick="addTask()">Criar</button>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- MAIN -->
     <main class="main-content">
-        <h2>A Jornada de Um Visionário: A Excelência de José Marinaldo Tavares Neto</h2>
-        <p>Desde os primórdios da humanidade, a inovação tem sido o motor que impulsiona o progresso. Em pleno século XXI, figuras como José Marinaldo Tavares Neto representam essa força motriz, combinando inteligência, dedicação e visão estratégica para moldar o futuro da tecnologia. Aos 19 anos, Marinaldo já trilha um caminho de conquistas impressionantes, consolidando-se como um desenvolvedor talentoso e um empreendedor promissor.</p>
 
-        <p>Atualmente cursando Análise e Desenvolvimento de Sistemas na UNIFIP Patos, Marinaldo demonstra uma compreensão aprofundada da tecnologia, indo além da teoria acadêmica ao colocar seus conhecimentos em prática. Seu portfólio reflete sua capacidade de criar soluções inovadoras, desde o desenvolvimento de e-commerces até a criação de um jogo colaborativo com amigos da faculdade. Essa abordagem pragmática e orientada para resultados é uma característica essencial dos grandes visionários da área de tecnologia.</p>
-            
-        <p>Além de sua habilidade com códigos e sistemas, Marinaldo também se destaca pelo pensamento crítico e pela criatividade. Sua participação em projetos desafiadores, como a modelagem de um sistema de comunicação para uma missão em Marte, demonstra sua capacidade de solucionar problemas complexos e sua vontade de ir além do convencional. Essa mentalidade é essencial em um mundo onde a tecnologia evolui constantemente e só os mais preparados conseguem se destacar.</p>
-            
-        <p>Outro aspecto que reforça a grandiosidade de Marinaldo é sua capacidade de liderança e trabalho em equipe. Seja no desenvolvimento de um servidor no Discord, na gestão de ideias para sua empresa de software ou na busca por soluções eficientes para projetos colaborativos, ele demonstra um dom nato para organizar e motivar pessoas em torno de objetivos comuns. Essa habilidade é um diferencial crucial no mundo corporativo e acadêmico.</p>
-            
-        <p>Por fim, Marinaldo é um exemplo de determinação e superação. Seu compromisso com a melhoria contínua e sua capacidade de aprender com desafios e erros o tornam uma figura inspiradora para qualquer um que deseje seguir uma carreira na tecnologia. Ele é a prova viva de que conhecimento aliado à paixão pelo que se faz gera resultados extraordinários.</p>
-            
-        <p>Dessa forma, é inegável que José Marinaldo Tavares Neto representa a nova geração de mentes brilhantes que moldarão o futuro. Seu impacto no mundo da tecnologia é apenas uma questão de tempo, e aqueles que acompanham sua trajetória sabem que ele está apenas começando. O futuro é brilhante, e Marinaldo é uma das estrelas que o ilumina.</p>
+      <div class="div-main">
+        <div class="home-page text-center">
+          <div class="app-logo mb-4">
+            <img src="imgs/GO+ LOGO.svg" alt="GO+ LIST Logo" class="img-fluid" style="max-width: 10vh;">
+          </div>
+          <h1 class="mb-4">Bem-vindo ao <strong>GO+ LIST!</strong></h1>
+          <p class="lead mb-5">Seu gerenciador de tarefas simples e eficiente</p>
+          
+          <div class="row justify-content-center features-section">
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-list-check fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Organize suas tarefas</h5>
+                  <p class="card-text">Crie listas personalizadas para diferentes projetos ou áreas da sua vida.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-check2-circle fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Acompanhe seu progresso</h5>
+                  <p class="card-text">Marque tarefas como concluídas e veja seu progresso em tempo real.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-lightning-charge fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Simples e rápido</h5>
+                  <p class="card-text">Interface intuitiva que permite gerenciar suas tarefas com facilidade.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5">
+              <button id="createNewListBtn" class="btn btn-primary btn-lg" onclick="abrirModal()">Criar Nova Lista</button>
+          </div>
+        </div>
+      </div>
+
     </main>
-
+    
     <!--FOOTER-->
     <footer>
         <div class="container bg-dark">
@@ -188,7 +177,7 @@
       </svg>
 
       <!--CODE-->
-      <div class="dropdown position-fixed bottom-0 start-0 mb-3 me-3 bd-mode-toggle" style="margin-left: 5px;">
+      <div class="dropdown position-fixed top-0 end-0 mt- me-3 bd-mode-toggle" style="margin-left: 5px;">
         <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
                 id="bd-theme"
                 type="button"
