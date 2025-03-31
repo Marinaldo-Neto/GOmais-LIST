@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="GO+ Team">
+    <meta name="author" content="GO+ Team; José Marinaldo, Adriano Júnior, Luiz Gustavo, Antônio Félix, Pedro Henrique Rocha">
     <meta name="description" content="TODO List completo">
     <title>GO+ LIST</title>
     <link rel="shortcut icon" href="imgs/GO-LOGO.ico" type="image/x-icon"> <!--FAVICON-->
@@ -17,56 +17,52 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" 
     rel="stylesheet"> <!--ICONS BOOTSTRAP-->
 </head>
-<body>
+<body></body>
     <!-- SIDEBAR -->
     <div class="sidebar">
         <nav class="nav flex-column">
-            <!--LOGOTIPO-->
-            <a href="index.html"><img class="logotipo" src="imgs/GO+ LOGO (Horizontal).svg" alt="LOGO GO MAIS"></a>
-            <a href="index.html"><img class="logotipo-hidden" src="imgs/GO+ LOGO.svg" alt="LOGO GO MAIS"></a>
-            <hr class="hr-sidebar" style="border: none;">
+          <!--LOGOTIPO-->
+          <a href="index.html"><img class="logotipo" src="imgs/GO+ LOGO (Horizontal).svg" alt="LOGO GO MAIS"></a>
+          <a href="index.html"><img class="logotipo-hidden" src="imgs/GO+ LOGO.svg" alt="LOGO GO MAIS"></a>
+          <hr class="hr-sidebar" style="border: none;">
+          <!--ADD LIST-->
+          <a class="nav-link" onclick="abrirModal()"> <!--REDIRECT-->
+              <span class="icon">
+                  <i class="bi bi-file-earmark-plus"></i> <!--ICON-->
+              </span>
+              <span class="description uppercase">Criar lista</span> <!--NAME-->
+          </a>
+          <!--PENDENTES (DROPDOWN)-->
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" 
+          aria-expanded="false" aria-controls="submenu">  <!--REDIRECT & SUBMENU-->
+              <span class="icon">
+                  <i class="bi bi-list-ul"></i> <!--ICON-->
+              </span>
+              <span class="description uppercase">Pendentes <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+          </a>
+          <!--SUBMENU DINAMICO-->
+          <div class="sub-menu collapse" id="submenu">
+              <div id="taskList"></div> <!-- As tarefas serão adicionadas aqui -->
+          </div>
+          
+          <!-- SUBMENU (DROPDOWN ITEMS)-->
+          <div class="sub-menu collapse" id="submenu"> <!--ID SUBMENU-->
+              
+          </div>
+          
+          <!--CONCLUIDAS (DROPDOWN)-->
+          <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2" 
+          aria-expanded="false" aria-controls="submenu2"> <!--REDIRECT & SUBMENU-->
+          <span class="icon">
+              <i class="bi bi-list-check"></i> <!--ICON-->
+          </span>
+          <span class="description uppercase">Concluídas <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
+        </a>
+      <!-- SUBMENU (DROPDOWN ITEMS)-->
+      <div class="sub-menu collapse" id="submenu2"> <!--ID SUBMENU-->
+        <div id="completedTaskList"></div>
+      </div>
 
-            <!--ADD LIST-->
-            <a class="nav-link" onclick="abrirModal()"> <!--REDIRECT-->
-                <span class="icon">
-                    <i class="bi bi-file-earmark-plus"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Criar lista</span> <!--NAME-->
-            </a>
-
-            <!--PENDENTES (DROPDOWN)-->
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" 
-            aria-expanded="false" aria-controls="submenu">  <!--REDIRECT & SUBMENU-->
-                <span class="icon">
-                    <i class="bi bi-list-ul"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Pendentes <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
-            </a>
-            <!--SUBMENU DINAMICO-->
-            <div class="sub-menu collapse" id="submenu">
-                <div id="taskList"></div> <!-- As tarefas serão adicionadas aqui -->
-            </div>
-            
-            <!-- SUBMENU (DROPDOWN ITEMS)-->
-            <div class="sub-menu collapse" id="submenu"> <!--ID SUBMENU-->
-
-                
-            </div>
-            
-            <!--CONCLUIDAS (DROPDOWN)-->
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2" 
-            aria-expanded="false" aria-controls="submenu2"> <!--REDIRECT & SUBMENU-->
-                <span class="icon">
-                    <i class="bi bi-list-check"></i> <!--ICON-->
-                </span>
-                <span class="description uppercase">Concluídas <i class="bi bi-caret-down-fill"></i></span> <!--NAME-->
-            </a>
-            <!-- SUBMENU (DROPDOWN ITEMS)-->
-            <div class="sub-menu collapse" id="submenu2"> <!--ID SUBMENU-->
-  
-
-
-            </div>
 
         </nav>
     </div>
@@ -93,23 +89,49 @@
 
     <!-- MAIN -->
     <main class="main-content">
-        <h1>Nome da Lista</h1>
-        <hr>
-        <div class="add-task">
-            <input type="text" id="nomeTask" class="form-control" placeholder="Adicionar atividade" aria-label="Adicionar atividade">
-            <button type="button" class="btn btn-primary" onclick="addSubTask()"><i class="bi bi-plus-lg"></i></button>
+
+      <div class="div-main">
+        <div class="home-page text-center">
+          <div class="app-logo mb-4">
+            <img src="imgs/GO+ LOGO.svg" alt="GO+ LIST Logo" class="img-fluid" style="max-width: 10vh;">
+          </div>
+          <h1 class="mb-4">Bem-vindo ao <strong>GO+ LIST!</strong></h1>
+          <p class="lead mb-5">Seu gerenciador de tarefas simples e eficiente</p>
+          
+          <div class="row justify-content-center features-section">
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-list-check fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Organize suas tarefas</h5>
+                  <p class="card-text">Crie listas personalizadas para diferentes projetos ou áreas da sua vida.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-check2-circle fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Acompanhe seu progresso</h5>
+                  <p class="card-text">Marque tarefas como concluídas e veja seu progresso em tempo real.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                  <i class="bi bi-lightning-charge fs-1 text-primary mb-3"></i>
+                  <h5 class="card-title">Simples e rápido</h5>
+                  <p class="card-text">Interface intuitiva que permite gerenciar suas tarefas com facilidade.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5">
+              <button id="createNewListBtn" class="btn btn-primary btn-lg" onclick="abrirModal()">Criar Nova Lista</button>
+          </div>
         </div>
-    
-        <br>
-    
-        <ul id="subTaskList" class="list-group"></ul>
-    
-        <br>
-    
-        <button type="button" class="btn btn-primary">Marcar como Concluído</button>
-        <button type="button" class="btn btn-danger" onclick="removeAllSubTasks('${taskText}')">Excluir Todas as Subtarefas</button>
-
-
+      </div>
 
     </main>
     
@@ -155,7 +177,7 @@
       </svg>
 
       <!--CODE-->
-      <div class="dropdown position-fixed bottom-0 start-0 mb-3 me-3 bd-mode-toggle" style="margin-left: 5px;">
+      <div class="dropdown position-fixed top-0 end-0 mt- me-3 bd-mode-toggle" style="margin-left: 5px;">
         <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
                 id="bd-theme"
                 type="button"

@@ -39,30 +39,51 @@ p, label, input {
 /** SIDEBAR ******************************/
 .sidebar {
     position: fixed;
+    height: 100vh; /* Altura da sidebar igual à altura da tela */
+    overflow-y: auto;
     top: 0;
     left: 0;
-    height: 100%;
     width: 200px;
     padding-top: 20px;
     background-color: #151f48;
     transition: width 0.3s;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    scrollbar-color: #555555;
+}
+
+/* SCROLL BAR ******************************/
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+.sidebar::-webkit-scrollbar-track {
+  background: #151f48;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #555555;
 }
 
 /** ITEMS SIDER BAR */
 .sidebar .nav-link {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 10px 20px;
+    gap: 10px;
+    padding: 10px 15px;
     color: #e8f3ff;
+    overflow:hidden ; 
 }
 
 /** SIDEBAR TEXT */
 .sidebar .description {
     font-size: 14px;
     padding-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    display: inline-block;
 }
 
 /** UPPERCASE TEXT */
@@ -84,42 +105,81 @@ p, label, input {
 
 /** MAIN ******************************/
 .main-content {
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
-    height: auto;
+    height: 100%;
     width: calc(100%-200px);
     margin-left: 200px;
     padding: 20px;
 }
+
+.div-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/** ADD TASK ******************************/
+.add-task {
+    display: flex;
+    width: 100%;
+    align-items: start;
+}
+
+.add-task input {
+    max-width: 40%;
+    margin-right: 10px;
+    height: 40px;
+}
+
+.control-task {
+    display: flex;
+    width: 100%;
+    align-items: start;
+}
+
+.control-task .btn.btn-danger{
+    margin-left: 10px;
+}
+
+.task-buttons {
+    max-width: 40%;
+}
+
+.input-task {
+    margin-top: 0px;
+}
+
+.label-task {
+    width: auto;
+}
+
 
 /** CONFIG THEMES BTN ******************************/
 
 /** SVG COLOR */
 .bi {
     vertical-align: -.125em;
-    fill: #e8f3ff;
+    fill: #0d6efd;
 }
 
 /** BTN CONFIG */
 .btn-bd-primary {
-    --bd-violet-bg: #021024;
+    --bd-violet-bg: #0d6efd;
     --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(#021024);
-    --bs-btn-bg: var(--bd-violet-bg);
     --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(#021024);
-    --bs-btn-hover-bg: #021024;
-    --bs-btn-hover-border-color: #021024;
-    --bs-btn-focus-shadow-rgb: var(#021024);
-    --bs-btn-active-color: var(#021024);
-    --bs-btn-active-bg: #021024;
-    --bs-btn-active-border-color: #021024;
+    --bs-btn-hover-border-color: #0d6efd;
+    --bs-btn-active-border-color: #0d6efd;
 }
 
   /** ERROR COLOR CONFIG */
 .btn-bd-primary.dropdown-toggle::after {
-    color: #e8f3ff; /* Cor preta no tema claro */
+    color: #0d6efd; /* Cor preta no tema claro */
 }
 
 .bd-mode-toggle {
@@ -162,8 +222,22 @@ footer {
     align-items: center;
 }
 
+/** Pequena config de responsividade para TABLET */
+@media (max-width: 767px) {
+    .main-content{
+        height: auto;
+    }
+}
+
+
 /** MOBILE ******************************/
 @media (max-width: 480px) {
+
+    /** ajustando responsividade */
+    .main-content {
+        height: auto;
+    }
+
     /** ativando a logo */
     .logotipo-hidden {
         width: 36px;
@@ -212,6 +286,28 @@ footer {
     .line {
         flex-direction: column-reverse;
         align-items: start;
+    }
+
+    /** responsividade input */
+    .add-task input {
+        max-width: 80%;
+        margin-right: 10px;
+    }
+
+    .control-task {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+    }
+    
+    .control-task .btn.btn-danger{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    
+    .task-buttons {
+        max-width: 100%;
     }
 }
 
